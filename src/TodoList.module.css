@@ -1,0 +1,11 @@
+.todoList {
+    padding: 10px;
+    margin: 0 60px 50px 0;
+}
+
+.isDone {
+    opacity: 0.5;
+}
+.activeFilter {
+    background-color: aquamarine;
+}

@@ -1,0 +1,24 @@
+.error {
+    border: red 1px solid;
+}
+
+.errorMessage {
+    color: red;
+}
+.itemForm {
+    height: 50px;
+}
+.itemFormInput {
+    background-color: #F6FBFF;
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+    width: 200px;
+    height: 25px;
+    padding: 5px;
+    outline: none;
+    border: 1px solid #B9B8C3;
+    margin-right: 10px;
+}
+.itemFormBtn {
+    color: #333333;
+}

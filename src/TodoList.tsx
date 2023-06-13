@@ -1,7 +1,8 @@
-import React, {ChangeEvent, KeyboardEvent, useState} from "react";
+import React, {ChangeEvent} from "react";
 import {FilterValuesType, TaskType} from "./App";
 import {AddItemForm} from "./AddItemForm";
 import {EditableSpan} from "./EditableSpan";
+import style from './TodoList.module.css';
 
 type PropsType = {
     todoListId: string,
@@ -36,10 +37,10 @@ export const TodoList = (props: PropsType) => {
     };
 
     return (
-        <div>
+        <div className={style.todoList}>
             <EditableSpan title={props.title} onChange={onChangeTodolistTitle}/>
             <button onClick={onClickHandler}>x</button>
-            <AddItemForm addItem={addTask}/>
+            <AddItemForm addItem={addTask} value={'Title task'}/>
             <ul>
                 {props.tasks.map(t => {
 
@@ -53,7 +54,7 @@ export const TodoList = (props: PropsType) => {
                     }
 
                     return <li key={t.id}
-                               className={t.isDone ? 'is-done' : ''}
+                               className={t.isDone ? style.isDone : ''}
                     >
                         <input type={"checkbox"} checked={t.isDone} onChange={onChangeHandler}/>
                         <EditableSpan title={t.title} onChange={onChangeTitleHandler}/>
@@ -64,14 +65,14 @@ export const TodoList = (props: PropsType) => {
             </ul>
             <div>
                 <button onClick={onAllClickHandler}
-                        className={props.filter === 'all' ? 'active-filter' : ''}>All
+                        className={props.filter === 'all' ? style.activeFilter : ''}>All
                 </button>
                 <button onClick={onActiveClickHandler}
-                        className={props.filter === 'active' ? 'active-filter' : ''}
+                        className={props.filter === 'active' ? style.activeFilter : ''}
                 >Active
                 </button>
                 <button onClick={onCompletedClickHandler}
-                        className={props.filter === 'completed' ? 'active-filter' : ''}
+                        className={props.filter === 'completed' ? style.activeFilter : ''}
                 >Completed
                 </button>
             </div>
