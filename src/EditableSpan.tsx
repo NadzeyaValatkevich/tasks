@@ -1,8 +1,10 @@
 import React, {ChangeEvent, useState} from "react";
+import style from './EditableSpan.module.css';
 
 type EditableSpanPropsType = {
     title: string,
-    onChange: (newTitle: string) => void
+    onChange: (newTitle: string) => void,
+    style: {fontSize: string}
 };
 
 export const EditableSpan = (props: EditableSpanPropsType) => {
@@ -25,6 +27,6 @@ export const EditableSpan = (props: EditableSpanPropsType) => {
     };
 
     return editMode
-        ? <input value={title} autoFocus onBlur={activateViewMode} onChange={changeTitleHandler}/>
-        : <span onDoubleClick={activateEditMode}>{props.title}</span>
+        ? <input value={title} autoFocus onBlur={activateViewMode} onChange={changeTitleHandler} className={style.input}/>
+        : <span onDoubleClick={activateEditMode} style={props.style}>{props.title}</span>
 }

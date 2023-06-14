@@ -1,0 +1,11 @@
+.activeFilter {
+    background-color: #333333;
+    color: #B9B8C3;
+}
+.button {
+    flex-grow: 1;
+    margin: 2px;
+    font-size: 15px;
+    font-family: 'Poppins', sans-serif;
+    border: 1px solid #B9B8C3;
+}

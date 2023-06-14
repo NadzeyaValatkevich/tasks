@@ -7,10 +7,10 @@
 }
 .itemForm {
     height: 50px;
+    margin-bottom: 20px;
 }
 .itemFormInput {
     background-color: #F6FBFF;
-    font-family: 'Poppins', sans-serif;
     font-size: 15px;
     width: 200px;
     height: 25px;
@@ -21,4 +21,9 @@
 }
 .itemFormBtn {
     color: #333333;
+}
+@media screen and (max-width: 450px) {
+    .itemFormInput {
+        width: 150px;
+    }
 }

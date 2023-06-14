@@ -3,6 +3,10 @@ import {FilterValuesType, TaskType} from "./App";
 import {AddItemForm} from "./AddItemForm";
 import {EditableSpan} from "./EditableSpan";
 import style from './TodoList.module.css';
+import {Checkbox, IconButton} from "@mui/material";
+import {Delete} from "@mui/icons-material";
+import {grey} from "@mui/material/colors";
+import {Button} from "./components/button/Button";
 
 type PropsType = {
     todoListId: string,
@@ -19,7 +23,12 @@ type PropsType = {
 };
 
 export const TodoList = (props: PropsType) => {
-
+    const titleTodo = {
+        fontSize: '20px'
+    };
+    const titleTask = {
+        fontSize: '16px'
+    };
     const addTask = (title: string) => {
         props.addTask(props.todoListId, title);
     };
@@ -33,15 +42,19 @@ export const TodoList = (props: PropsType) => {
     };
 
     const onChangeTodolistTitle = (newTitle: string) => {
-       props.changeTodoListTitle(props.todoListId, newTitle)
+        props.changeTodoListTitle(props.todoListId, newTitle)
     };
 
     return (
         <div className={style.todoList}>
-            <EditableSpan title={props.title} onChange={onChangeTodolistTitle}/>
-            <button onClick={onClickHandler}>x</button>
+            <div className={style.blockTitleTodo}>
+                <EditableSpan title={props.title} onChange={onChangeTodolistTitle} style={titleTodo}/>
+                <IconButton onClick={onClickHandler}>
+                    <Delete/>
+                </IconButton>
+            </div>
             <AddItemForm addItem={addTask} value={'Title task'}/>
-            <ul>
+            <div>
                 {props.tasks.map(t => {
 
                     const onClickHandler = () => props.removeTask(props.todoListId, t.id);
@@ -53,28 +66,26 @@ export const TodoList = (props: PropsType) => {
                         props.changeTaskTitle(props.todoListId, t.id, newTitle);
                     }
 
-                    return <li key={t.id}
-                               className={t.isDone ? style.isDone : ''}
+                    return <div key={t.id}
+                               className={t.isDone ? `${style.isDone} ${style.task}` : style.task}
                     >
-                        <input type={"checkbox"} checked={t.isDone} onChange={onChangeHandler}/>
-                        <EditableSpan title={t.title} onChange={onChangeTitleHandler}/>
-                        <button onClick={onClickHandler}>x
-                        </button>
-                    </li>
+                        <Checkbox onChange={onChangeHandler} checked={t.isDone} sx={{
+                            color: grey[800],
+                            '&.Mui-checked': {
+                                color: grey[600],
+                            },
+                        }}/>
+                        <EditableSpan title={t.title} onChange={onChangeTitleHandler} style={titleTask}/>
+                        <IconButton onClick={onClickHandler}>
+                            <Delete/>
+                        </IconButton>
+                    </div>
                 })}
-            </ul>
-            <div>
-                <button onClick={onAllClickHandler}
-                        className={props.filter === 'all' ? style.activeFilter : ''}>All
-                </button>
-                <button onClick={onActiveClickHandler}
-                        className={props.filter === 'active' ? style.activeFilter : ''}
-                >Active
-                </button>
-                <button onClick={onCompletedClickHandler}
-                        className={props.filter === 'completed' ? style.activeFilter : ''}
-                >Completed
-                </button>
+            </div>
+            <div className={style.blockBtn}>
+                <Button onClick={onAllClickHandler} styleBtn={props.filter === 'all' ? 'activeFilter' : ''} title={'All'}/>
+                <Button onClick={onActiveClickHandler} styleBtn={props.filter === 'active' ? 'activeFilter' : ''} title={'Active'}/>
+                <Button onClick={onCompletedClickHandler} styleBtn={props.filter === 'completed' ? 'activeFilter' : ''} title={'Completed'}/>
             </div>
         </div>
     )

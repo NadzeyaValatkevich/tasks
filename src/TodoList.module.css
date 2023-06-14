@@ -1,11 +1,40 @@
 .todoList {
-    padding: 10px;
+    width: 300px;
+    height: auto;
+    padding: 15px;
     margin: 0 60px 50px 0;
+    background-color: #F6FBFF;
+    box-shadow: 10px 10px 5px #B9B8C3;
+}
+.blockTitleTodo {
+    display: flex;
+    justify-content: space-between;
+}
+.checkbox {
+    color: #333333;
 }
 
 .isDone {
     opacity: 0.5;
 }
-.activeFilter {
-    background-color: aquamarine;
+.task {
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+.blockBtn {
+    width: 100%;
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+@media screen and (max-width: 860px) {
+    .todoList {
+        margin-right: 0;
+    }
+}
+@media screen and (max-width: 450px) {
+    .todoList {
+        width: 250px;
+    }
 }
