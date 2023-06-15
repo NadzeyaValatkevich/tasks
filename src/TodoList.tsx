@@ -6,7 +6,7 @@ import style from './TodoList.module.css';
 import {Checkbox, IconButton} from "@mui/material";
 import {Delete} from "@mui/icons-material";
 import {grey} from "@mui/material/colors";
-import {Button} from "./components/button/Button";
+import {Button} from "./common/button/Button";
 
 type PropsType = {
     todoListId: string,
