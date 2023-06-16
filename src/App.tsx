@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useCallback, useState} from 'react';
 import style from './App.module.css';
 import {TodoList} from "./TodoList";
 import {v1} from "uuid";
@@ -50,37 +50,37 @@ const App = () => {
     //     ],
     // });
 
-    const removeTask = (todoListId: string, id: string) => {
+    const removeTask = useCallback((todoListId: string, id: string) => {
         dispatch(RemoveTask(todoListId, id));
-    };
+    }, []);
 
-    const addTask = (todoListId: string, title: string) => {
+    const addTask = useCallback((todoListId: string, title: string) => {
         dispatch(AddTask(todoListId, title));
-    };
+    }, []);
 
-    const changeStatus = (todoListId: string, id: string, isDone: boolean) => {
+    const changeStatus = useCallback((todoListId: string, id: string, isDone: boolean) => {
         dispatch(ChangeTaskStatus(todoListId, id, isDone));
-    };
+    }, []);
 
-    const changeTaskTitle = (todoListId: string, id: string, newTitle: string) => {
+    const changeTaskTitle = useCallback((todoListId: string, id: string, newTitle: string) => {
         dispatch(ChangeTaskTitle(todoListId, id, newTitle));
-    };
+    }, []);
 
-    const removeTodoList = (todoListId: string) => {
+    const removeTodoList = useCallback((todoListId: string) => {
         dispatch(RemoveTodoList(todoListId));
-    };
+    }, []);
 
-    const addTodoList = (title: string) => {
+    const addTodoList = useCallback((title: string) => {
         dispatch(AddTodoList(title));
-    };
+    }, []);
 
-    const changeFilter = (todoListId: string, value: FilterValuesType) => {
+    const changeFilter = useCallback((todoListId: string, value: FilterValuesType) => {
         dispatch(ChangeTodoListFilter(todoListId, value));
-    };
+    }, []);
 
-    const changeTodoListTitle = (todoListId: string, newTitle: string) => {
+    const changeTodoListTitle = useCallback((todoListId: string, newTitle: string) => {
         dispatch(ChangeTodoListTitle(todoListId, newTitle));
-    };
+    }, []);
 
     return (
         <div className={style.app}>
@@ -95,13 +95,6 @@ const App = () => {
 
                         let allTodoListTasks = tasks[tl.id];
                         let tasksForTodoList = allTodoListTasks;
-
-                        if (tl.filter === 'active') {
-                            tasksForTodoList = allTodoListTasks.filter(t => t.isDone === false)
-                        }
-                        if (tl.filter === 'completed') {
-                            tasksForTodoList = allTodoListTasks.filter(t => t.isDone === true)
-                        }
 
                         return <TodoList key={tl.id}
                                          todoListId={tl.id}
