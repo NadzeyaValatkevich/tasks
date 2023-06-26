@@ -1,0 +1,18 @@
+{
+  "todoLists": [
+    {
+      "id": "01033610-0c87-11ee-b1f9-9550b3ce46b9",
+      "title": "What to learn",
+      "filter": "all"
+    }
+  ],
+  "tasks": {
+    "01033610-0c87-11ee-b1f9-9550b3ce46b9": [
+      {
+        "id": "658a3a20-0c87-11ee-b1f9-9550b3ce46b9",
+        "title": "HTML",
+        "isDone": false
+      }
+    ]
+  }
+}

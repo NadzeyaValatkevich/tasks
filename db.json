@@ -1,0 +1,47 @@
+{
+  "todoLists": [
+    {
+      "title": "What to learn?",
+      "id": "db19fab0-1348-11ee-b4d6-0b701b80dcdd"
+    },
+    {
+      "id": "e08268c0-1348-11ee-b4d6-0b701b80dcdd",
+      "title": "What to buy?"
+    },
+    {
+      "title": "What to do?",
+      "id": "ZFHuW-l"
+    },
+    {
+      "title": "hello",
+      "id": "pzSRH-A"
+    }
+  ],
+  "tasks": [
+    {
+      "title": "CSS0",
+      "id": "f8a7bea0-1348-11ee-b4d6-0b701b80dcdd"
+    },
+    {
+      "title": "Redux?",
+      "id": "fc68e550-1348-11ee-b4d6-0b701b80dcdd"
+    },
+    {
+      "todoListId": "e08268c0-1348-11ee-b4d6-0b701b80dcdd",
+      "id": "002f3c20-1349-11ee-b4d6-0b701b80dcdd",
+      "title": "milk",
+      "isDone": false
+    },
+    {
+      "todoListId": "ZFHuW-l",
+      "title": "read",
+      "id": "Hbx8mb4"
+    },
+    {
+      "todoListId": "db19fab0-1348-11ee-b4d6-0b701b80dcdd",
+      "title": "CSS",
+      "id": "YyM3fwW",
+      "isDone": true
+    }
+  ]
+}
